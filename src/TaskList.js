@@ -1,5 +1,4 @@
 import { useState } from "react";
-import AddTask from "./AddTask";
 
 export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
   return (

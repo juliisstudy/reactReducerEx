@@ -27,7 +27,7 @@ export default function TaskApp() {
     });
   }
 
-  function tasksReducer(draft, action) {
+  function tasksReducer(tasks, action) {
     switch (action.type) {
       case "add": {
         return [
