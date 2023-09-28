@@ -1,11 +1,16 @@
 import "./styles.css";
 
-import Task from "./Task";
+import TaskList from "./TaskList";
+import AddTask from "./AddTask";
+import { TasksProvider } from "./TasksContext";
 
 export default function App() {
   return (
     <div className="App">
-      <Task />
+      <TasksProvider>
+        <AddTask />
+        <TaskList />
+      </TasksProvider>
     </div>
   );
 }

@@ -1,18 +1,24 @@
 import { useState } from "react";
+import { useTasksDispatch } from "./TasksContext.js";
 
-export default function AddTask({ addTask }) {
-  const [text, setText] = useState(" ");
+export default function AddTask() {
+  const [text, setText] = useState("");
+  const dispatch = useTasksDispatch();
   return (
     <>
       <input
-        placeholder="add one"
+        placeholder="Add task"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
       <button
         onClick={() => {
           setText("");
-          addTask(text);
+          dispatch({
+            type: "added",
+            id: nextId++,
+            text: text,
+          });
         }}
       >
         Add
@@ -20,3 +26,5 @@ export default function AddTask({ addTask }) {
     </>
   );
 }
+
+let nextId = 3;
